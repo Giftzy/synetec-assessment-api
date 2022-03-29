@@ -12,6 +12,8 @@ namespace SynetecAssessmentApi.Persistence
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         { }
+        public AppDbContext() 
+        { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

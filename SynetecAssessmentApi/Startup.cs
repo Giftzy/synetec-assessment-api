@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using SynetecAssessmentApi.Persistence;
+using SynetecAssessmentApi.Services;
 
 namespace SynetecAssessmentApi
 {
@@ -29,6 +30,10 @@ namespace SynetecAssessmentApi
 
             services.AddDbContext<AppDbContext>(options =>
                 options.UseInMemoryDatabase(databaseName: "HrDb"));
+
+            
+            services.AddScoped(t => new EmployeeService(t.GetRequiredService<AppDbContext>()));
+            services.AddScoped(t => new BonusPoolService(t.GetRequiredService<AppDbContext>(), t.GetRequiredService<EmployeeService>()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,8 +48,7 @@ namespace SynetecAssessmentApi
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
-
+            app.UseRouting(); 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
