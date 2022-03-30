@@ -2,23 +2,19 @@
 
 This is Synetec's basic API developer assessment.
 
-If you are reading this, you most probably have been asked to complete this assessment as part of Synetec's interview process.
+## The context…
 
-In this repository, you will find the base project and instructions on what to do with them. 
+A company (let’s call them ‘ABC ltd’) have decided to implement a company-wide bonus scheme.
+The company plans to allocate a proportion of their profits to a bonus pool. Once the size of the bonus pool is agreed, this total amount will be divided amongst their employees. The amount each employee will receive will depend on their annual salary: The proportion of the bonus pool allocated to an employee should be the same as the proportion of the total wage budget that their salary represents.
+If an employee's salary is 15% of the total wage budget for the company (i.e. the total of all salaries of all employees), then they will receive 15% of the bonus pool. So, to elaborate, if the bonus pool was £123,456.00; this employee would receive £18,518.40 (i.e. 123,456 x 0.15)
 
-## How to complete this test
+## Project Business Logic
 
-Please follow the instructions in the Instructions.pdf, found in this repository
+Refactor the application so that, 
+1. It adheres to SOLID principles
+2. It returns a bad request when SelectedEmployeeId is not specified, or the employee is not found. 
+3. The calculations are unit tested
 
-Please explain the work that you did or any challenges that you faced, either by comments in code or in an email. 
-In case the requirements are not met or they are not finished please explain the reasoning behind that.
+## Technologies / Patterns
 
-## How to submit your completed test
-
-To sumbit your test, please 
-1. Fork this repository
-2. Complete the test as per the instructions PDF 
-3. Commit your changes to your (forked) repo 
-4. Send us an http link to your repo that contains the completed test 
-
-**This repo is Read-Only!!** So please don't try to open a pull request
+.Net 5.0 C#, Dependency Injection, Async await and Github for version control system. NUnit Test
